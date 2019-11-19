@@ -9,5 +9,8 @@
         <module name="RuntimeExcet0inProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RuntimeExcet0inProject" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

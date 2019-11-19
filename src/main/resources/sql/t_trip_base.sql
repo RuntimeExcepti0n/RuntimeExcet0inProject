@@ -65,12 +65,13 @@
             );
 
     CREATE TABLE IF NOT EXISTS t_trip_person(
-              id VARCHAR(32),
+              id VARCHAR(32) NOT NULL COMMENT '主键ID',
               bill_no VARCHAR(32),
               person_name VARCHAR(32),
               person_um  VARCHAR(20),
               finacial_class_name VARCHAR(32),
               finacial_class_code VARCHAR(2),
               is_excutive VARCHAR(2),
+              PRIMARY KEY (`id`)
             );
     
