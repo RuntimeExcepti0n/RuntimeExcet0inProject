@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dragon.mapper.TripRefundMapper">
+    <sql id="insertColumn">
+        (id,
+        bill_no,
+        scan_number,
+        dept_id,
+        dept_name,
+        refund_total_amount,
+        is_quick_pay,
+        is_qu_gui_mian,
+        is_vip,
+        status,
+        is_delete,
+        created_by,
+        updated_by,
+        created_date,
+        updated_date)
+    </sql>
+    <insert id="saveTripBase" parameterType="com.dragon.entity.TripBase">
+        insert into t_trip_base <include refid="insertColumn"/>
+        values ( #{id}, #{billNo}, #{scanNumber}, #{deptId}, #{deptName},
+        #{refundTotalAmount}, #{isQuickPay},
+        #{isQuGuiMian}, #{isVip}, #{status},#{isDelete},#{createdBy},#{updateBy},
+        #{createdDate},now()
+        )
+    </insert>
+
+    <select id="selectTripBase" parameterType="tripBase" resultType="tripBase">
+        select * from t_trip_base
+        <where>
+            <if test = "billNo !=null and  billNo.trim().length()!=0">
+                bill_no = #{billNo}
+            </if>
+        </where>
+    </select>
+</mapper>
