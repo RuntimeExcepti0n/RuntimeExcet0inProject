@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -28,6 +30,12 @@ public class PaymentInfoServiceImpl extends ServiceImpl<PaymentInfoMapper, Payme
     public IPage selectByPage(Page page,PaymentInfo paymentInfo) {
         IPage result = paymentInfoMapper.selectPage(page, new QueryWrapper<PaymentInfo>().eq("bill_no", paymentInfo.getBillNo()));
         return result;
+    }
+
+    @Override
+    public List<PaymentInfo> getList() {
+
+        return paymentInfoMapper.getList();
     }
 
 }

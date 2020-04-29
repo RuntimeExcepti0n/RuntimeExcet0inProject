@@ -27,7 +27,7 @@
         )
     </insert>
 
-    <select id="selectTripBase" parameterType="tripBase" resultType="tripBase">
+    <select id="selectTripBase" parameterType="com.dragon.entity.TripBase" resultType="com.dragon.entity.TripBase">
         select * from t_trip_base
         <where>
             <if test = "billNo !=null and  billNo.trim().length()!=0">

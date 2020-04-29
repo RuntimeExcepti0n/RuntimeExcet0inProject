@@ -22,4 +22,8 @@
         id, bill_no, payee_name, payee_num, account_name, account_num, pay_way, is_delete, created_by, updated_by, created_date, updated_date
     </sql>
 
+    <select id="getList" resultType="com.dragon.entity.PaymentInfo">
+        select * from t_payment_info
+    </select>
+
 </mapper>

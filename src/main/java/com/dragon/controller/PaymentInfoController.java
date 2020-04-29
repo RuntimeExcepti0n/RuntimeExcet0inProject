@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -58,5 +59,16 @@ public class PaymentInfoController {
 //        paymentInfoService.page(page,queryWrapper);
         IPage iPage = paymentInfoService.selectByPage(page, paymentInfo);
         return ResultUtil.getSuccessResult(iPage.getRecords());
+    }
+
+    @PostMapping("/getList")
+    public ResultInfo getList(@RequestBody PaymentInfo paymentInfo){
+        logger.info("查询收款人信息{}", JSON.toJSONString(paymentInfo));
+        Page page = new Page(1,2);
+//        QueryWrapper queryWrapper = new QueryWrapper<PaymentInfo>();
+//         queryWrapper.eq("bill_no", paymentInfo.getBillNo());
+//        paymentInfoService.page(page,queryWrapper);
+        List<PaymentInfo> list = paymentInfoService.getList();
+        return ResultUtil.getSuccessResult(list);
     }
 }
