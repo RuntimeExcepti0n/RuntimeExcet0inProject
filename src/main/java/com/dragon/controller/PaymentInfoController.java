@@ -44,8 +44,8 @@ public class PaymentInfoController {
     public ResultInfo savePayment(@RequestBody PaymentInfo paymentInfo){
         logger.info("保存收款人信息{}", JSON.toJSONString(paymentInfo));
         paymentInfo.setId(UUIDUtil.getUUIDWithoutDash());
-        paymentInfo.setUpdatedDate(new Date());
-        paymentInfo.setCreatedDate(new Date());
+//        paymentInfo.setUpdatedDate(new Date());
+//        paymentInfo.setCreatedDate(new Date());
         paymentInfoService.save(paymentInfo);
         return ResultUtil.getSuccessResult("");
     }
